@@ -5,7 +5,7 @@
 3. [封装](#3)
 
    ​
-   
+
 <h3 id="#1">1. 动态类型语言和鸭子类型</h3>
 
 * Javascript没有提供传统面向对象语言中的类式继承，而是通过原型(prototype)委托的方式来实现的。
@@ -17,8 +17,23 @@
 <h3 id="#2">2. 多态</h3>
 
 * 多态：同一操作作用于不同对象上，产生了不同的解释和不同的结果。
-* 实现：将“做什么”和“谁去做以及怎样做”分离开来
+
+* 实现：**将“做什么”和“谁去做以及怎样做”分离开来**
+
+  ```javascript
+  var makeSound = function( animal ){ animal.sound();};
+  var Duck = function(){}
+  Duck.prototype.sound = function(){ console.log( '嘎嘎嘎' );
+  };
+  var Chicken = function(){}
+  Chicken.prototype.sound = function(){ console.log( '咯咯咯' );
+  };
+  makeSound( new Duck() ); // 嘎嘎嘎
+  makeSound( new Chicken() ); // 咯咯咯
+  ```
+
 * 作用：通过把**过程化的条件分支语句**转化为**对象的多态性**，从而消除这些条件分支语句
+
 * 设计模式与多态：
   * 命令模式：请求封装在命令对象中，将命令的调用者和使用者解耦
   * 组合模式：对**组合对象**和**叶节点对象**发出同一个消息时，会各自执行自己的任务，组合对象会将消息继续转发给下面的叶节点对象，然后继续执行
