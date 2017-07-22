@@ -6,6 +6,8 @@
 
 4. [原型模式和基于原型继承的JavaScript对象系统](#4)
 
+5. [this/call/apply](#5)
+
    ​
 
 <h3 id="#1">1. 动态类型语言和鸭子类型</h3>
@@ -56,7 +58,7 @@
 
 * 使用克隆的原型模式：如自带的`Object.create`方法
 
-* 克隆是创建对象的手段，A克隆Object，B克隆A，Object是A的原型，A是B的原型，从而形成了原型链
+* **克隆是创建对象的手段**，A克隆Object，B克隆A，Object是A的原型，A是B的原型，从而形成了原型链（JavaScript中通过new或直接赋值，然后由引擎内部克隆原型对象）
 
 * 原型模式不仅是一种设计模式，也是一种**编程范型**
 
@@ -69,10 +71,35 @@
   * 对象会记住它的原型
   * 当对象无法响应某个请求时，会把该请求委托给它自己的原型
 
+* 通过原型编程范型理解new运算符克隆原型对象的原理
+
+  ```javascript
+  function Person (name) {
+    this.name = name
+  }
+  var a = new Person('Selvin')
+  1. 创建空对象，var obj = new Object()
+  2. 用构造器Constructor记录new后面衔接的对象Person
+  3. 将构造器的原型赋给obj的原型（2，3步骤就是为了记住对象的原型）
+  4. 返回obj，完成对象克隆
+  ```
 
 
 
 
+<h3 id="#5">5.  this/call/apply</h3>
+
+* this
+
+  * this的指向：作为对象方法／普通函数／构造器／call或apply调用
+
+    **如果调用者函数，被某一个对象所拥有，那么该函数在调用时，内部的this指向该对象。如果函数独立调用，那么该函数内部的this，则指向undefined**。但是在非严格模式中，当this指向undefined时，它会被自动指向全局对象。
+
+  * this的丢失：this所属的函数没有被一个对象（非全局对象）所拥有，指向undefined
+
+  ​
+
+  ​
 
 ​			
 ​		
