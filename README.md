@@ -1,7 +1,7 @@
 
 ## JavaScript设计模式
 
-1. [JavaScript设计模式](./JavaScript设计模式/JavaScript设计模式.md)
+1. [基础知识](./JavaScript设计模式/基础知识.md)
 
 2. [闭包和高阶函数](./JavaScript设计模式/闭包和高阶函数.md)
 
