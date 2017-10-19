@@ -1,9 +1,17 @@
 
 ## JavaScript设计模式
 
-1. [基础知识](./JavaScript设计模式/基础知识.md)
+#### 一基础知识
 
-2. [闭包和高阶函数](./JavaScript设计模式/闭包和高阶函数.md)
+1. [面向对象的Javascript](./JavaScript设计模式/一基础知识/面向对象的Javascript.md)
+2. [this、call和apply](./JavaScript设计模式/一基础知识/this、call和apply.md)
+3. [闭包和高阶函数](./JavaScript设计模式/一基础知识/闭包和高阶函数.md)
+
+#### 二设计模式
+
+1. [单例模式](./JavaScript设计模式/二设计模式/单例模式.md)
+
+
 
 
 ## 图解HTTP
