@@ -1,4 +1,4 @@
-#### this、call和apply
+## this、call和apply
 
 1. [this](#1)
 2. [call和apply](#2)
@@ -7,7 +7,7 @@
 
 #### <a name="#1">1. this</a>
 
-  JavaScript 的 this 总是指向一个对象，而具体指向哪个对象是在运行时基于函数的执行环境动态绑定的，而非函数被声明时的环境。
+  JavaScript 的 this **总是指向一个对象**，而具体指向哪个对象是在运行时基于函数的执行环境动态绑定的，而非函数被声明时的环境。
 
   * this的指向：作为对象方法／普通函数／构造器／call或apply调用
 
@@ -17,14 +17,16 @@
 
 #### <a name="#2">2. call和apply</a>
 
-  * apply：apply 接受两个参数，第一个参数指定了函数体内 this 对象的指向，第二个参数为一个带下 标的集合，这个集合可以为数组，也可以为类数组
+  * apply：apply 接受两个参数，第一个参数指定了函数体内 this 对象的指向，第二个参数为一个带下标的集合，这个集合可以为数组，也可以为类数组
 
-  * call：call 传入的参数数量不固定，跟 apply 相同的是，第一个参数也是代表函数体内的 this 指向， 从第二个参数开始往后，每个参数被依次传入函数
+  * call：call 传入的参数数量不固定，跟 apply 相同的是，第一个参数也是代表函数体内的 this 指向，从第二个参数开始往后，每个参数被依次传入函数
 
-  * call和apply的用途：
+* call和apply的用途：
 
-    1. 改变this指向
-    2. Function.prototype.bind 
+  1. 改变this指向
+
+  2. Function.prototype.bind 
+
   ```javascript
   // 模拟bind实现
   Function.prototype.bind = function(context) {
@@ -34,8 +36,11 @@
     }
   }
   ```
-    3. 借用其它对象的方法
-			函数的参数列表arguments是一个类数组对象，如需向其添加元素，需要借用Array对象的push方法
+
+  3. 借用其它对象的方法
+  
+  函数的参数列表arguments是一个类数组对象，如需向其添加元素，需要借用Array对象的push方法
+  
   ```javascript
   (function(){
     Array.prototype.push.call(arguments,3)

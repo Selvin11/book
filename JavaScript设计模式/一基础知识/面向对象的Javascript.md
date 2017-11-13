@@ -25,31 +25,35 @@
 
   * 实现：**将“做什么”和“谁去做以及怎样做”分离开来**
 
-      ```javascript
-      var makeSound = function( animal ){ animal.sound();};
-      var Duck = function(){}
-      Duck.prototype.sound = function(){ console.log( '嘎嘎嘎' );
-      };
-      var Chicken = function(){}
-      Chicken.prototype.sound = function(){ console.log( '咯咯咯' );
-      };
-      makeSound( new Duck() ); // 嘎嘎嘎
-      makeSound( new Chicken() ); // 咯咯咯
-      ```
+  ```javascript
+  var makeSound = function (animal) { 
+    animal.sound()
+  }
+  var Duck = function () {}
+  Duck.prototype.sound = function () { 
+    console.log('嘎嘎嘎')
+  }
+  var Chicken = function () {}
+  Chicken.prototype.sound = function () { 
+    console.log('咯咯咯')
+  }
+  makeSound(new Duck()) // 嘎嘎嘎
+  makeSound(new Chicken()) // 咯咯咯
+  ```
 
   * 多态在面向对象程序设计中的作用：通过把**过程化的条件分支语句**转化为**对象的多态性**，从而消除这些条件分支语句
 
   * 设计模式与多态：
 
-    * 命令模式：请求封装在命令对象中，将命令的调用者和使用者解耦
-    * 组合模式：对**组合对象**和**叶节点对象**发出同一个消息时，会各自执行自己的任务，组合对象会将消息继续转发给下面的叶节点对象，然后继续执行
+    * 命令模式：请求封装在命令对象中，将命令的调用者和使用者解耦。
+    * 组合模式：对**组合对象**和**叶节点对象**发出同一个消息时，会各自执行自己的任务，组合对象会将消息继续转发给下面的叶节点对象，然后继续执行。
     * 策略模式：上下文没有执行算法的能力，执行算法都委托给了策略对象，各自负责对应的算法执行，然后返回计算结果。
 
 
 
-####<a name="#3">3. 封装</a>
+#### <a name="#3">3. 封装</a>
 
-  * 目的：将内部的数据（私有变量，公共方法等）、实现、类型、**变化**（找到变化并封装之）等细节隐藏，只暴露API接口即可
+  * 目的：将内部的数据（私有变量，公共方法等）、实现、类型、**变化**（找到变化并封装之）等细节隐藏，只暴露API接口即可。
 
   * 封装实现：从封装实现细节来讲，封装使得对象内部的变化对其他对象而言是透明的，也就是不可见的。 对象对它自己的行为负责。其他对象或者用户都不关心它的内部实现。封装使得对象之间的耦合变松散，对象之间只通过暴露的 API 接口来通信。当我们修改一个对象时，可以随意地修改它的内部实现，只要对外的接口没有变化，就不会影响到程序的其他功能。
 
@@ -61,7 +65,7 @@
 
     ​
 
-####<a name="#4">4. 封装原型模式和基于原型继承的JavaScript对象系统</a>
+#### <a name="#4">4. 封装原型模式和基于原型继承的JavaScript对象系统</a>
 
   * 原型模式不仅是一种设计模式，也是一种**编程范型**
 
@@ -71,23 +75,23 @@
 
   * **原型编程范型的基本规则**
 
-    * 所有的数据都是对象
+    1. 所有的数据都是对象
 
-    * 要得到一个对象，不是通过实例化类，而是找到一个对象作为原型并克隆它
+    2. 要得到一个对象，不是通过实例化类，而是找到一个对象作为原型并克隆它
 
-    * 对象会记住它的原型
+    3. 对象会记住它的原型
 
-    * 当对象无法响应某个请求时，会把该请求委托给它自己的原型
+    4. 当对象无法响应某个请求时，会把该请求委托给它自己的原型
 
   * 通过原型编程范型理解new运算符克隆原型对象的原理
 
-      ```javascript
-      function Person (name) {
-        this.name = name
-      }
-      var a = new Person('Selvin')
-      1. 创建空对象，var obj = new Object()
-      2. 用构造器Constructor记录new后面衔接的对象Person
-      3. 将构造器的原型赋给obj的原型（2，3步骤就是为了记住对象的原型）
-      4. 返回obj，完成对象克隆
-      ```
+  ```javascript
+  function Person (name) {
+    this.name = name
+  }
+  var a = new Person('Selvin')
+  // 1. 创建空对象，var obj = new Object()
+  // 2. 用构造器Constructor记录new后面衔接的对象Person
+  // 3. 将构造器的原型赋给obj的原型（2，3步骤就是为了记住对象的原型）
+  // 4. 返回obj，完成对象克隆
+  ```
